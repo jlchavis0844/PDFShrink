@@ -40,11 +40,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tbConsole = new System.Windows.Forms.TextBox();
             this.btnCloseReaders = new System.Windows.Forms.Button();
+            this.cbPrintAll = new System.Windows.Forms.CheckBox();
+            this.cbResetPrinter = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnDir
             // 
-            this.btnDir.Location = new System.Drawing.Point(573, 13);
+            this.btnDir.Location = new System.Drawing.Point(573, 12);
             this.btnDir.Name = "btnDir";
             this.btnDir.Size = new System.Drawing.Size(176, 23);
             this.btnDir.TabIndex = 0;
@@ -59,15 +61,17 @@
             this.lblDirectory.MaximumSize = new System.Drawing.Size(300, 20);
             this.lblDirectory.MinimumSize = new System.Drawing.Size(300, 20);
             this.lblDirectory.Name = "lblDirectory";
+            this.lblDirectory.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblDirectory.Size = new System.Drawing.Size(300, 20);
             this.lblDirectory.TabIndex = 1;
             this.lblDirectory.Text = "No directory Selected";
+            this.lblDirectory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnFlatten
             // 
             this.btnFlatten.Location = new System.Drawing.Point(269, 68);
             this.btnFlatten.Name = "btnFlatten";
-            this.btnFlatten.Size = new System.Drawing.Size(480, 25);
+            this.btnFlatten.Size = new System.Drawing.Size(386, 25);
             this.btnFlatten.TabIndex = 2;
             this.btnFlatten.Text = "Flatten and Print";
             this.btnFlatten.UseVisualStyleBackColor = true;
@@ -85,9 +89,9 @@
             // 
             // btnCont
             // 
-            this.btnCont.Location = new System.Drawing.Point(269, 108);
+            this.btnCont.Location = new System.Drawing.Point(269, 106);
             this.btnCont.Name = "btnCont";
-            this.btnCont.Size = new System.Drawing.Size(480, 23);
+            this.btnCont.Size = new System.Drawing.Size(386, 23);
             this.btnCont.TabIndex = 4;
             this.btnCont.Text = "Finish Printing";
             this.btnCont.UseVisualStyleBackColor = true;
@@ -148,17 +152,40 @@
             this.btnCloseReaders.Location = new System.Drawing.Point(269, 142);
             this.btnCloseReaders.Name = "btnCloseReaders";
             this.btnCloseReaders.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnCloseReaders.Size = new System.Drawing.Size(480, 23);
+            this.btnCloseReaders.Size = new System.Drawing.Size(386, 23);
             this.btnCloseReaders.TabIndex = 10;
             this.btnCloseReaders.Text = "Close All Reader Windows";
             this.btnCloseReaders.UseVisualStyleBackColor = true;
             this.btnCloseReaders.Click += new System.EventHandler(this.btnCloseReaders_Click);
+            // 
+            // cbPrintAll
+            // 
+            this.cbPrintAll.AutoSize = true;
+            this.cbPrintAll.Location = new System.Drawing.Point(651, 37);
+            this.cbPrintAll.Name = "cbPrintAll";
+            this.cbPrintAll.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cbPrintAll.Size = new System.Drawing.Size(103, 17);
+            this.cbPrintAll.TabIndex = 11;
+            this.cbPrintAll.Text = "Print All At Once";
+            this.cbPrintAll.UseVisualStyleBackColor = false;
+            // 
+            // cbResetPrinter
+            // 
+            this.cbResetPrinter.AutoSize = true;
+            this.cbResetPrinter.Location = new System.Drawing.Point(95, 339);
+            this.cbResetPrinter.Name = "cbResetPrinter";
+            this.cbResetPrinter.Size = new System.Drawing.Size(120, 17);
+            this.cbResetPrinter.TabIndex = 12;
+            this.cbResetPrinter.Text = "Reset printer on exit";
+            this.cbResetPrinter.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(770, 381);
+            this.Controls.Add(this.cbResetPrinter);
+            this.Controls.Add(this.cbPrintAll);
             this.Controls.Add(this.btnCloseReaders);
             this.Controls.Add(this.tbConsole);
             this.Controls.Add(this.button1);
@@ -173,6 +200,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "PDF Mass Printer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,6 +219,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox tbConsole;
         private System.Windows.Forms.Button btnCloseReaders;
+        private System.Windows.Forms.CheckBox cbPrintAll;
+        private System.Windows.Forms.CheckBox cbResetPrinter;
     }
 }
 
